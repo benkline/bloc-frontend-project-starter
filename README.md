@@ -1,46 +1,7 @@
-## Bloc Frontend Project Starter
+## Ben's Frontend Project Starter
 
-A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
+forked from a student project starter application as part of Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
 
-## Configuration
-
-Start by cloning the repository:
-
-```
-$ git clone https://github.com/Bloc/bloc-frontend-project-starter.git <your-frontend-project-name>
-```
-
-The project uses Grunt to run tasks in development. Thoroughly review our [resource on using Grunt](https://www.bloc.io/resources/using-grunt) before using this application. It may also help to review [our resource on NPM and `package.json` files](https://www.bloc.io/resources/npm-and-package-json).
-
-Install the project dependencies by running:
-
-```
-$ npm install
-```
-
-## Run the Application
-
-Run the application using the Gruntfile's `default` task:
-
-```
-$ grunt
-```
-
-The default task runs a simple server on port 3000. To view it in a any browser, go to [http://localhost:3000](http://localhost:3000).
-
->Note that unless the application is run [via Live Preview in Brackets](#use-in-brackets-live-preview), the browser will need to be refreshed to view the most recent changes.
-
-### Using without Angular
-
-By default, the application is configured to be used in a Single-Page Application (SPA) with AngularJS. If you're working on a project that doesn't use AngularJS, see the instructions below [for configuring the server to run in a non-SPA](#configure-server-for-non-spas).
-
-## Use in Brackets Live Preview
-
-To use the application with the Live Preview functionality of the Brackets text editor, go to __File > Project Settings__ and add `http://localhost:3000` to the Base URL field.
-
-![Screenshot of project settings URL in Brackets](https://bloc-global-assets.s3.amazonaws.com/images-frontend/screenshots/bloc-frontend-project-starter/live_preview_project_settings.png)
-
-The text in the application will not update on every keystroke, but changes will automatically push when you save the file.
 
 ## Directory Structure
 
@@ -71,7 +32,7 @@ All code, styles, markup, and assets should be saved to the `app` directory. Sav
 
 Add images to the `app/assets/images` directory. To reference images in HTML, use the path `/assets/images/<image file name>.jpg`. For example, to include the image called `bloc-white-logo.png`, the path for the `src` attribute in the HTML would be:
 
-```html 
+```html
 <img src="/assets/images/bloc-white-logo.png">
 ```
 
@@ -135,7 +96,7 @@ var Hapi = require('hapi'),
 +            handler: createDirectoryRoute('/')
          }
      };
- 
+
 -server.route([ routes.css, routes.js, routes.images, routes.templates, routes.spa ]);
 +server.route([ routes.css, routes.js, routes.images, routes.templates, routes.staticPages ]);
 ...
