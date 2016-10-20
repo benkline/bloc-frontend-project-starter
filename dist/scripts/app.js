@@ -17,9 +17,10 @@
         controller: 'CollectionCtrl as collection',
         templateUrl: '/templates/collection.html'
       })
-       .state('album', {
-         url: '/album',
-         templateUrl: '/templates/album.html'
+      .state('album', {
+        url: '/album',
+        controller: 'AlbumCtrl as album',
+        templateUrl: '/templates/album.html'
       });
      }
 

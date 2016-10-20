@@ -1,3 +1,5 @@
+// var albums = [albumPicasso, albumMarconi, albumTesla]
+
 var albumPicasso = {
     title: 'The Colors',
     artist: 'Pablo Picasso',
@@ -38,6 +40,6 @@ var albumTesla = {
         { title: 'Kapitalismo? Hell No!', duration: '1:01' },
         { title: 'Eureka', duration: '5:01' },
         { title: 'The same thing we do every night Pinky...', duration: '3:21'},
-        { title: 'I will die alone', duration: '3:14' },
+        { title: 'we will all die alone', duration: '3:14' },
       ]
 };
