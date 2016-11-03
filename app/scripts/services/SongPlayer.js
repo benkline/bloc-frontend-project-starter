@@ -47,6 +47,11 @@
 */
         SongPlayer.currentSong = null;
 
+  /**
+  * @desc Current playback time (in seconds) of currently playing song
+  * @type {Number}
+  */
+        SongPlayer.currentTime = null;
 /**
 * @function playSong
 * @desc sets currentBuzzObject to play and song.playing to true
