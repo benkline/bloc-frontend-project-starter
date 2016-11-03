@@ -1,5 +1,5 @@
 (function() {
-    function SongPlayer(Fixtures) {
+    function SongPlayer($rootScope, Fixtures) {
 
 /**
 * @desc  a variable set to an empty object so that the service returning this object sets its properties and methods public to the rest of the application.
@@ -31,6 +31,12 @@
             preload: true
           });
 
+          currentBuzzObject.bind('timeupdate', function() {
+              $rootScope.$apply(function() {
+                  SongPlayer.currentTime = currentBuzzObject.getTime();
+              });
+          });
+
           SongPlayer.currentSong = song;
         };
 
@@ -47,11 +53,12 @@
 */
         SongPlayer.currentSong = null;
 
-  /**
-  * @desc Current playback time (in seconds) of currently playing song
-  * @type {Number}
-  */
+/**
+* @desc Current playback time (in seconds) of currently playing song
+* @type {Number}
+*/
         SongPlayer.currentTime = null;
+
 /**
 * @function playSong
 * @desc sets currentBuzzObject to play and song.playing to true
@@ -118,11 +125,11 @@
                  playSong(song);
                }
         };
-/**
-* @function SongPlayer.next
-* @desc sets currentSongIndex and decrements the index by one, then uses setSong and playSong. Checks to see if currentSongIndex is greater than album length and clears index if it is.
-* @param {Object}
-*/
+      /**
+      * @function SongPlayer.next
+      * @desc sets currentSongIndex and decrements the index by one, then uses setSong and playSong. Checks to see if currentSongIndex is greater than album length and clears index if it is.
+      * @param {Object}
+      */
       SongPlayer.next = function() {
           var currentSongIndex = getSongIndex(SongPlayer.currentSong);
           currentSongIndex++;
@@ -136,11 +143,22 @@
              }
       };
 
+     /**
+     * @function setCurrentTime
+     * @desc Set current time (in seconds) of currently playing song
+     * @param {Number} time
+     */
+     SongPlayer.setCurrentTime = function(time) {
+         if (currentBuzzObject) {
+             currentBuzzObject.setTime(time);
+         }
+     };
+
       return SongPlayer;
     }
 
 
     angular
         .module('blocJams')
-        .factory('SongPlayer', SongPlayer);
+        .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
 })();
