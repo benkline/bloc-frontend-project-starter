@@ -157,7 +157,7 @@
      * @desc Current playback time (in seconds) of currently playing song
      * @type {Number}
      */
-     SongPlayer.volume = null;
+     SongPlayer.volume = 75;
 
      /**
      * @function hold and set value of volume
