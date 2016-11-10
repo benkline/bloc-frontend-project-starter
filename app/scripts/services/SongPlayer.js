@@ -1,5 +1,5 @@
 (function() {
-    function SongPlayer($rootScope, Fixtures) {
+    function SongPlayer($rootScope, Fixtures, Metrics) {
 
 /**
 * @desc  a variable set to an empty object so that the service returning this object sets its properties and methods public to the rest of the application.
@@ -81,7 +81,7 @@
 
 /**
 * @function SongPlayer.play
-* @desc makes currentBuzzObject publicly available, checks to see if it selected song is already selected - if not, then sets and plays - if selected is set as seleted but is paused, then plays it
+* @desc makes currentBuzzObject publicly available, checks to see if it selected song is already selected - if not, then sets and plays - if selected is set as seleted but is paused, then plays it. Also fires getMetrics to add data to  rootScope arrays
 * @param {Object} song
 */
         SongPlayer.play = function(song) {
@@ -93,6 +93,7 @@
           } else if (SongPlayer.currentSong === song) {
               if (currentBuzzObject.isPaused()) {
                   playSong(song);
+                  Metrics.getMetrics();
               }
           }
         };
