@@ -1,66 +1,41 @@
 (function() {
-  function Metrics($rootScope, SongPlayer) {
+  function Metrics($rootScope) {
 
     var Metrics = {};
 
     $rootScope.songsPlayed = [];
     $rootScope.albumsPlayed = [];
-    $rootScope.artistsPlayed = [];
 
-    var albumObj = SongPlayer.currentAlbum();
-    var artistObj = albumObj.artist();
-    var songObj = SongPlayer.currentSong();
-
-    getSongPlayed = function(songObj) {
+    Metrics.getSong = function(songObj) {
         songObj['playedAt'] = new Date();
         $rootScope.songsPlayed.push(songObj);
-      },
+    },
 
-    listSongsPlayed = function() {
+    listSongs = function() {
         var songs = [];
         angular.forEach($rootScope.songsPlayed, function(song) {
-            songs.push(song.title);
+            songs.push(song);
         });
         return songs;
       }
 
-    getAlbumPlayed = function(albumObj) {
-        //songObj is the song before the song that starts via autoplay
+    Metrics.getAlbum = function(albumObj) {
         albumObj['playedAt'] = new Date();
         $rootScope.albumsPlayed.push(albumObj);
     },
 
-    listAlbumsPlayed = function() {
+    listAlbums = function() {
         var albums = [];
         angular.forEach($rootScope.albumsPlayed, function(album) {
-            albums.push(album.title);
+            albums.push(album);
         });
         return albums;
-      },
-
-    getArtistPlayed = function(artistObj) {
-        //songObj is the song before the song that starts via autoplay
-        artistObj['playedAt'] = new Date();
-        $rootScope.artistsPlayed .push(albumObj);
-    },
-
-    listArtistsPlayed = function() {
-        var artists = [];
-        angular.forEach($rootScope.artistsPlayed, function(artist) {
-            artists.push(artist.name);
-        });
-        return artists;
-      },
-
-    Metrics.getMetrics = function () {
-        getArtistPlayed();
-        getAlbumPlayed();
-        getSongPlayed();
       }
-
-    };
+      
+    return Metrics;
+ }
 
   angular
     .module('blocJams')
-    .service('Metrics', ['$rootScope', 'SongPlayer', Metrics]);
+    .service('Metrics', ['$rootScope', Metrics]);
 })();

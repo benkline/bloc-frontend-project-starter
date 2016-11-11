@@ -89,12 +89,14 @@
           if (SongPlayer.currentSong !== song) {
             setSong(song);
             playSong(song);
+            Metrics.getSong(SongPlayer.currentSong);
+            Metrics.getAlbum(currentAlbum);
 
           } else if (SongPlayer.currentSong === song) {
               if (currentBuzzObject.isPaused()) {
                   playSong(song);
-                  Metrics.getMetrics();
-              }
+                  Metrics.getSong(SongPlayer.currentSong);
+                  Metrics.getAlbum(currentAlbum);              }
           }
         };
 
@@ -178,5 +180,5 @@
 
     angular
         .module('blocJams')
-        .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
+        .factory('SongPlayer', ['$rootScope', 'Fixtures', 'Metrics', SongPlayer]);
 })();
