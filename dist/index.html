@@ -12,6 +12,15 @@
     <link rel="stylesheet" type="text/css" href="/styles/collection.css">
     <link rel="stylesheet" type="text/css" href="/styles/album.css">
     <link rel="stylesheet" type="text/css" href="/styles/player_bar.css">
+    <link rel="stylesheet" type="text/css" href="/styles/data.css">
+
+<!-- need to do something to the server.js file or gruntfile.js to tell the app to look a these bower_components-->
+    <!-- <link rel="stylesheet" href="bower_components/nvd3/nv.d3.css"> -->
+    <!-- <script src="bower_components/angular/angular.js"></script> -->
+    <!-- <script src="bower_components/d3/d3.js"></script> -->
+    <!-- <script src="bower_components/nvd3/nv.d3.js"></script> -->
+    <!-- <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script> -->
+
   </head>
 
   <body>
@@ -21,15 +30,22 @@
         <img src="assets/images/bloc_jams_logo.png" alt="bloc jams logo">
       </a>
       <div class="links-container">
-        <a ui-sref="collection" class="navbar-link">collection</a>
+        <a ui-sref="collection" class="navbar-link">your music</a>
+        <a ui-sref="data" class="navbar-link">your data</a>
+        <a ui-sref="data" class="navbar-link">login / sign up</a>
       </div>
     </nav>
 
     <ui-view></ui-view>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.9/angular-nvd3.min.js"></script>
+
     <script src="/scripts/app.js"></script>
     <script src="/scripts/services/Fixtures.js"></script>
     <script src="/scripts/services/SongPlayer.js"></script>
@@ -38,6 +54,7 @@
     <script src="/scripts/controllers/CollectionCtrl.js"></script>
     <script src="/scripts/controllers/AlbumCtrl.js"></script>
     <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
+    <script src="/scripts/controllers/DataCtrl.js"></script>
     <script src="/scripts/directives/seekBar.js"></script>
     <script src="/scripts/filters/timecode.js"></script>
   </body>
