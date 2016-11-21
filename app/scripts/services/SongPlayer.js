@@ -95,8 +95,9 @@
           } else if (SongPlayer.currentSong === song) {
               if (currentBuzzObject.isPaused()) {
                   playSong(song);
-                  Metrics.getSong(SongPlayer.currentSong);
-                  Metrics.getAlbum(currentAlbum);              }
+                //   Metrics.getSong(SongPlayer.currentSong);
+                //   Metrics.getAlbum(currentAlbum);
+              }
           }
         };
 
