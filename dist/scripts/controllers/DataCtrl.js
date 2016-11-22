@@ -1,10 +1,7 @@
 (function() {
     function DataCtrl($rootScope) {
 
-    var songData =  angular.toJson($rootScope.songsPlayed);
-    var albumData = angular.toJson($rootScope.albumsPlayed);
-
-    this.albumOptions =
+    Metrics.songCounts();
 
     this.songoptions =
         {
