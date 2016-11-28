@@ -1,5 +1,5 @@
 (function() {
-    function DataCtrl($rootScope) {
+    function DataCtrl(Metrics) {
 
     Metrics.songCounts();
 
