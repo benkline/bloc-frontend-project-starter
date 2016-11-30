@@ -3,37 +3,42 @@
 
     var Metrics = {};
 
-    $rootScope.songsPlayed = [];
-    $rootScope.albumsPlayed = [];
+    $rootScope.playInfo = [];
 
-    Metrics.getSong = function(songObj) {
-        songObj['playedAt'] = new Date();
-        $rootScope.songsPlayed.push(songObj);
-    },
+    Metrics.registerPlayInfo = function(albumObj, songObj) {
+        info= {
+            playedAt: new Date(),
+            album: albumObj.title,
+            artist: albumObj.artist,
+            title: songObj.title
+        };
 
-    listSongs = function() {
-        var songs = [];
-        angular.forEach($rootScope.songsPlayed, function(song) {
-            songs.push(song);
-        });
+        $rootScope.playInfo.push(info);
+
+    };
+
+    Metrics.songCounts = function() {
+
+        var songs = {};
+
+        for (var i = 0; i < $rootScope.playInfo.length; i++) {
+            var song = $rootScope.playInfo[i];
+
+            if (!songs.hasOwnProperty(song.title)) {
+                songs[song.title] = 1;
+            } else {
+                songs[song.title] += 1;
+            }
+        }
+
+        console.log(songs);
         return songs;
-      }
 
-    Metrics.getAlbum = function(albumObj) {
-        albumObj['playedAt'] = new Date();
-        $rootScope.albumsPlayed.push(albumObj);
-    },
+    }
 
-    listAlbums = function() {
-        var albums = [];
-        angular.forEach($rootScope.albumsPlayed, function(album) {
-            albums.push(album);
-        });
-        return albums;
-      }
-      
     return Metrics;
  }
+
 
   angular
     .module('blocJams')

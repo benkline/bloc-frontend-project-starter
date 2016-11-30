@@ -21,10 +21,16 @@
         url: '/album',
         controller: 'AlbumCtrl as album',
         templateUrl: '/templates/album.html'
+      })
+      .state('data', {
+        url: '/data',
+        controller: 'DataCtrl as data',
+        templateUrl: '/templates/data.html'
       });
+
      }
 
   angular
-      .module('blocJams', ['ui.router'])
+      .module('blocJams', ['ui.router','nvd3'])
       .config(config);
 })();

@@ -89,14 +89,15 @@
           if (SongPlayer.currentSong !== song) {
             setSong(song);
             playSong(song);
-            Metrics.getSong(SongPlayer.currentSong);
-            Metrics.getAlbum(currentAlbum);
+            // Metrics.getSong(SongPlayer.currentSong);
+            Metrics.registerPlayInfo(currentAlbum, SongPlayer.currentSong);
 
           } else if (SongPlayer.currentSong === song) {
               if (currentBuzzObject.isPaused()) {
                   playSong(song);
-                  Metrics.getSong(SongPlayer.currentSong);
-                  Metrics.getAlbum(currentAlbum);              }
+                //   Metrics.getSong(SongPlayer.currentSong);
+                //   Metrics.getAlbum(currentAlbum);
+              }
           }
         };
 
