@@ -1,8 +1,6 @@
 (function() {
     function DataCtrl(Metrics) {
 
-    Metrics.songCounts();
-
     this.songoptions =
         {
             chart: {
@@ -31,22 +29,31 @@
             }
         };
 
-    this.albumdata =
+    var formatSongData = function(rawData){
+        var formattedSongDataArray = [];
 
-    this.songdata =
-        [{
-                values: [
-                    { "label" : "A" , "value" : -29.765957771107 },
-                    { "label" : "B" , "value" : 0 },
-                    { "label" : "C" , "value" : 32.807804682612 },
-                    { "label" : "D" , "value" : 196.45946739256 },
-                    { "label" : "E" , "value" : 0.19434030906893 },
-                    { "label" : "F" , "value" : -98.079782601442 },
-                    { "label" : "G" , "value" : -13.925743130903 },
-                    { "label" : "H" , "value" : -5.1387322875705 }
-                ]
-            }]
-        };
+        for (i in rawData) {
+            var songObj = {"label" : Object.keys(rawData), "value" : rawData[i]};
+            formattedSongDataArray.push(songObj);
+          }
+
+        return formattedSongDataArray;
+    }
+
+    this.songdata = formatSongData(Metrics.songCounts());
+        // [{
+        //         values: [
+        //             { "label" : "A" , "value" : -29.765957771107 },
+        //             { "label" : "B" , "value" : 0 },
+        //             { "label" : "C" , "value" : 32.807804682612 },
+        //             { "label" : "D" , "value" : 196.45946739256 },
+        //             { "label" : "E" , "value" : 0.19434030906893 },
+        //             { "label" : "F" , "value" : -98.079782601442 },
+        //             { "label" : "G" , "value" : -13.925743130903 },
+        //             { "label" : "H" , "value" : -5.1387322875705 }
+        //         ]
+        //     }]
+    };
 
     angular
         .module('blocJams')

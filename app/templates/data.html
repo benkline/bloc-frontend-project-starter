@@ -2,11 +2,11 @@
   <section class="clearfix">
       <div class= "column.half">
           <nvd3 options= "data.songoptions" data="data.songdata"></nvd3>
-            <div class= "column.half">
-                <nvd3 class= "column.half" options= "data.dataoptions" data="data.albumdata"></nvd3>
-            </div>
-        </div>
+      </div>
   </section>
+
+  {{data.songdata}}
+
 </main>
 
 <ng-include src="'/templates/player_bar.html'"></ng-include>
